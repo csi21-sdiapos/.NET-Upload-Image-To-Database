@@ -59,8 +59,6 @@ namespace UploadImageToDatabase.DbContexts
 {
     public class PostgreSqlContext : DbContext
     {
-        public PostgreSqlContext()
-        { }
         public PostgreSqlContext(DbContextOptions options) : base(options) 
         { }
 
@@ -190,9 +188,6 @@ namespace UploadImageToDatabase.Pages.Alumnos
     public class IndexModel : PageModel
     {
         private readonly PostgreSqlContext _postgreSqlContext;
-
-        public IndexModel()
-        { }
 
         public IndexModel(PostgreSqlContext postgreSqlContext)
         {
