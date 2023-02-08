@@ -1,0 +1,43 @@
+﻿@page
+@model UploadImageToDatabase.Pages.Alumnos.CreateModel
+@{
+    ViewData["Title"] = "Subir una imagen de perfil del alumno";
+}
+
+<h1>Imagen de Perfil</h1>
+
+<p>
+    <a asp-page="Index">Back To List</a>
+</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Alumno.Alumno_nombre" class="control-label"></label>
+                <input asp-for="Alumno.Alumno_nombre" class="form-control" />
+                <span asp-validation-for="Alumno.Alumno_nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Alumno.Archivo_imagen" class="control-label"></label>
+                <input type="file" asp-for="Alumno.Archivo_imagen" class="form-control" />
+                <span asp-validation-for="Alumno.Archivo_imagen" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

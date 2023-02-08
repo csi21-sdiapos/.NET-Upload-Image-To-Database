@@ -1,0 +1,62 @@
+﻿@page
+@model UploadImageToDatabase.Pages.Alumnos.IndexModel
+@{
+}
+
+<h1>Lista de Alumnos</h1>
+
+<p>
+    <a asp-page="Create">Subir una imagen de perfil del alumno</a>
+</p>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.listaAlumnos[0].Md_uuid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listaAlumnos[1].Md_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listaAlumnos[2].Alumno_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listaAlumnos[3].Alumno_nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.listaAlumnos[4].Alumno_imagen)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.listaAlumnos) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Md_uuid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Md_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno_nombre)
+                </td>
+                <td>
+                    <img src="data:image/jpg;base64,@item.Alumno_imagen" width="120px" height="120px" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
